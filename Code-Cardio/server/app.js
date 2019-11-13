@@ -8,7 +8,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
-
+const PORT = 3000;
+app.listen(PORT, () => console.log(`running on port ${PORT}`));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -41,11 +42,3 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
-
-var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
-app.use(
-  bodyParser.text()
-);
